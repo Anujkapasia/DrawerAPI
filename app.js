@@ -15,7 +15,7 @@ app.use(cors())
 app.post('/change', upload.single('photo'),(req,res)=>{
     fs.rename(`./uploads/${req.file.filename}`,`./uploads/${req.file.filename}.png`,()=>changeToPDf(req.file.filename))
     // res.json({link: `https://drawerapi.herokuapp.com:3030/pdf/${req.file.filename}.pdf`})
-    res.end(`https://drawerapi.herokuapp.com:3030/pdf/${req.file.filename}.pdf`);
+    res.end(`https://drawerapi.herokuapp.com/${req.file.filename}.pdf`);
 })
 
 app.get('/',(req,res)=>{
